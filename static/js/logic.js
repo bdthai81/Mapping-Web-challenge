@@ -149,4 +149,11 @@ function createMap(earthquakes, faultlines) {
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
+
+  // Event Handler to keep popup layer on top
+  myMap.on("overlayadd", function (event) {
+    console.log("event");
+    earthquakes.bringToFront();
+  });
 }
+
